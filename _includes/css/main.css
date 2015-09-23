@@ -275,6 +275,7 @@ nav ul li:hover, nav ul li.active {
   position:relative;
   transition:.5s;
   padding:5px 40px;
+  background-color: #188BC8;
 }
 #forkongithub a::before, #forkongithub a::after {
   content:""; width:100%; display:block; position:absolute;
