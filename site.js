@@ -91,5 +91,11 @@ $(document).ready(function (){
         }
 	});
 
+    function animateTitleBackground() {
+        $('#title').css({'background-position-x': '0px'});
+        $('#title').animate({'background-position-x': '800px'}, 40000, 'linear', animateTitleBackground);
+    }
+
+    animateTitleBackground();
 });
 

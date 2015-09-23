@@ -19,8 +19,8 @@ title:       "cloud.iO - Scalable open source IoT solution"
 keywords:    "iot, internet of things, MQTT, RabbitMQ, InfluxDB, MongoDB"
 description: "Scalable open source IoT solution"
 source_link: "https://github.com/cloudio-project"
-favicon:     "img/favicon.ico"
-touch_icon:  "img/apple-touch-icon.png"
+favicon:     "images/favicon.ico"
+touch_icon:  "images/apple-touch-icon.png"
 google_analytics_key: ## put YOUR key here to enable tracking! (blank to disable)
 
 

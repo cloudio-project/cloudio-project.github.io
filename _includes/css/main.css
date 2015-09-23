@@ -25,6 +25,11 @@ html { box-sizing: border-box; }
   #{{id}} .sectiondivider { color: {{ bg }}; }
 {% endfor %}
 
+#title {
+  background-image: url('images/title-bg.jpg');
+  background-repeat: repeat-x;
+  background-color: #FBFDFE;
+}
 
 /* ----- code, syntax highlighting, etc ----- */
 
@@ -115,7 +120,7 @@ hr {
 {% assign navborder_active = 6 %}
 
 nav {
-  font-size:15px;
+  font-size:14px;
   width:100%;
   position:fixed;
   z-index:100;
