@@ -129,7 +129,6 @@ nav ul {
   text-align:center;
   padding:0;
   margin:0;
-  letter-spacing:-4px;
 }
 
 nav ul li {
@@ -142,7 +141,7 @@ nav ul li {
   letter-spacing:normal;
   text-transform:uppercase;
   min-width:110px;
-  line-height:60px;
+  line-height:40px;
   margin:0;
 }
 
@@ -150,7 +149,7 @@ nav ul li a, nav ul li a:visited {
   display:block;
   color:#fff;
   text-decoration:none;
-  font-weight:600;
+  font-weight:400;
   opacity:.75;
 }
 
