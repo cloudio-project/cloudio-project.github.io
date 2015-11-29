@@ -15,20 +15,18 @@ html { box-sizing: border-box; }
 {% endfor %}
 
 /* ----- per-post colors! ----- */
-{% for node in site.posts %}
-  {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
+{% for node in site.pages %}
+  {% capture id %}{{ node.id }}{% endcapture %}
   {% capture bg %}{% if site.colors[node.bg] %}{{ site.colors[node.bg] }}{% else %}{{ node.bg }}{% endif %}{% endcapture %}
   {% capture fg %}{% if site.colors[node.color] %}{{ site.colors[node.color] }}{% else %}{{ node.color }}{% endif %}{% endcapture %}
-  nav .p-{{id}} { border-color: {{ bg }}; }
   #{{id}} { background-color: {{ bg }} !important; color: {{ fg }}; }
   #{{id}} a { color: {{ fg }}; }
   #{{id}} .sectiondivider { color: {{ bg }}; }
 {% endfor %}
 
-#title {
+#home {
   background-image: url('images/title-bg.jpg');
   background-repeat: repeat-x;
-  background-color: #FBFDFE;
 }
 
 /* ----- code, syntax highlighting, etc ----- */
@@ -116,7 +114,7 @@ hr {
 
 /* ----- top menu ----- */
 
-{% assign navborder = 3 %}
+{% assign navborder = 6 %}
 {% assign navborder_active = 6 %}
 
 nav {
@@ -145,7 +143,7 @@ nav ul li {
   line-height:normal;
   letter-spacing:normal;
   text-transform:uppercase;
-  min-width:110px;
+  min-width:130px;
   line-height:40px;
   margin:0;
 }
@@ -161,9 +159,9 @@ nav ul li a, nav ul li a:visited {
 nav ul li a:hover {
   opacity:1
 }
-nav ul li:hover, nav ul li.active {
-  border-top-width: {{navborder_active}}px;
-  padding-top: 0;
+nav ul li.active {
+  border-top-width:{{navborder_active}}px;
+  border-color:{{ site.colors.navactive }};
 }
 
 
@@ -175,8 +173,6 @@ nav ul li:hover, nav ul li.active {
   width:100%;
   min-height:300px;
   padding:210px 0;
-  background:url(img/bgnoise.png);
-  /* generated noise from noisetexturegenerator.com */
 }
 
 .section:first-of-type {

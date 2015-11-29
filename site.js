@@ -53,6 +53,8 @@ $.extend($.easing,
                 }
             }
         });
+
+        activateNav('home');
     };
 
     function populateDestinations() {
@@ -67,6 +69,7 @@ $.extend($.easing,
         for (nav in navs) { $(navs[nav]).removeClass('active'); }
         $(navs[navID]).addClass('active');
     }
+
 })( jQuery );
 
 
@@ -91,11 +94,11 @@ $(document).ready(function (){
         }
 	});
 
-    function animateTitleBackground() {
-        $('#title').css({'background-position-x': '0px'});
-        $('#title').animate({'background-position-x': '800px'}, 40000, 'linear', animateTitleBackground);
+    function animateHomeBackground() {
+        $('#home').css({'background-position-x': '0px'});
+        $('#home').animate({'background-position-x': '800px'}, 40000, 'linear', animateHomeBackground);
     }
 
-    animateTitleBackground();
+    animateHomeBackground(); // Magic
 });
 
