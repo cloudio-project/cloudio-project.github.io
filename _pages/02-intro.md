@@ -1,12 +1,13 @@
 ---
-title: "how it works"
-bg: black
-color: white
+title: "How It Works"
+id: intro
 style: center
+bg: gray
+color: white
 fa-icon: angle-double-down
 ---
 
-![cloud.iO Architecture]({{ site.url }}/images/Architecture.png)
+![cloud.iO Architecture]({{ site.url }}images/Architecture.png)
 
 In the center of cloud.iO is a slightly modified version of the MIT Licensed [RabbitMQ message broker](https://www.rabbitmq.com). 
 The modifications allows cloud.iO to authenticate devices, applications and users and check for the permission of actually posting
