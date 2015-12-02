@@ -2,7 +2,7 @@
 title: "Home"
 id: home
 style: center
-bg: #ffffff
+bg: white
 color: black
 ---
 

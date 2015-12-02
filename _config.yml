@@ -29,7 +29,7 @@ google_analytics_key: ## put YOUR key here to enable tracking! (blank to disable
 ### template colors, used site-wide via css ###
 colors:
   black:     '#000000'
-  white:     '#f8f8f8'
+  white:     '#fafbfd'
   gray:	     '#111111'
   navactive: '#188ac7'
 
