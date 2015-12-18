@@ -1,11 +1,12 @@
 ---
-title: "home"
-bg: #FBFDFE
-color: black
+title: "Home"
+id: home
 style: center
+bg: white
+color: black
 ---
 
-![cloud.iO Logo]({{ site.url }}/images/cloud.iO Logo.png)
+![cloud.iO Logo]({{ site.url }}images/cloud.iO Logo.png)
 
 ### Scalable open source IoT solution
 
