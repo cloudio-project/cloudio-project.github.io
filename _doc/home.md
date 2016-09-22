@@ -1,12 +1,13 @@
 ---
 title: "Home"
-id: home
+link: home
+weight: 1
 style: center
 bg: white
 color: black
 ---
 
-![cloud.iO Logo]({{ site.url }}images/cloud.iO Logo.png)
+![cloud.iO Logo]({{ site.url }}images/logo.png)
 
 ### Scalable open source IoT solution
 
@@ -15,7 +16,5 @@ color: black
 cloud.iO is developed at the [Industrial Systems Institute](http://www.hevs.ch/isi) of the HES-SO Valais and is still in early development...
 
 <span id="forkongithub">
-  <a href="{{ site.source_link }}">
-    cloud.iO on GitHub
-  </a>
+  <a href="{{ site.source_link }}">cloud.iO on GitHub</a>
 </span>
