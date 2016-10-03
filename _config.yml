@@ -1,20 +1,39 @@
----
+markdown: kramdown
 
-port: 4000
-host: 0.0.0.0
-safe: false
+kramdown:
+  syntax_highlighter: rouge
+  auto_ids: false
 
+gems:
+  - jemoji
+
+incremental: true
 
 ### site serving configuration ###
-exclude: [CNAME, README.md, .gitignore]
-include: ['_pages']
+exclude:
+  - LICENSE
+  - README.md
+  - CNAME
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - script/
 
-permalink: / ## disables post output
+permalink: /
+
+# Collections
+collections:
+- doc
+
+collections:
+  doc:
+    output: false
+    permalink: :path
+
 timezone: null
 lsi: false
-markdown: kramdown
-highlighter: pygments
 
+production_url: "http://cloudio.hevs.ch/"
 
 ### content configuration ###
 title:       "cloud.iO - Scalable open source IoT solution"
@@ -25,14 +44,9 @@ favicon:     "images/favicon.ico"
 touch_icon:  "images/apple-touch-icon.png"
 google_analytics_key: ## put YOUR key here to enable tracking! (blank to disable)
 
-
 ### template colors, used site-wide via css ###
 colors:
   black:     '#000000'
   white:     '#fafbfd'
   gray:	     '#111111'
   navactive: '#188ac7'
-
-kramdown:
-  auto_ids:  false
-

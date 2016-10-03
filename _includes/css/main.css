@@ -15,8 +15,8 @@ html { box-sizing: border-box; }
 {% endfor %}
 
 /* ----- per-post colors! ----- */
-{% for node in site.pages %}
-  {% capture id %}{{ node.id }}{% endcapture %}
+{% for node in site.doc %}
+  {% capture id %}{{ node.link }}{% endcapture %}
   {% capture bg %}{% if site.colors[node.bg] %}{{ site.colors[node.bg] }}{% else %}{{ node.bg }}{% endif %}{% endcapture %}
   {% capture fg %}{% if site.colors[node.color] %}{{ site.colors[node.color] }}{% else %}{{ node.color }}{% endif %}{% endcapture %}
   #{{id}} { background-color: {{ bg }} !important; color: {{ fg }}; }
