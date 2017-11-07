@@ -15,6 +15,9 @@ color: black
 
 cloud.iO is developed at the [Industrial Systems Institute](http://www.hevs.ch/isi) of the HES-SO Valais and is still in early development...
 
+<br/><br/>
+<h2><a style="color: #232323; font-weight: bold; text-decoration: none;" href="http://cloudio.readthedocs.io">Go to the Documentation</a></h2>
+
 <span id="forkongithub">
   <a href="{{ site.source_link }}">cloud.iO on GitHub</a>
 </span>
