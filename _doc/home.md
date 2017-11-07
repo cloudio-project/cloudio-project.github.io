@@ -7,7 +7,7 @@ bg: white
 color: black
 ---
 
-![cloud.iO Logo]({{ site.url }}images/logo.png)
+![cloud.iO Logo]({{ site.url }}/images/logo.png)
 
 ### Scalable open source IoT solution
 
