@@ -1,1 +1,0 @@
-Based on the [SinglePaged theme](https://github.com/t413/SinglePaged) &mdash; cloud.iO is [an open source project]({{ site.source_link }})
