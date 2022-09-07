@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="icon" href="/_media/cloudio.png">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" type="text/css"/>
   
   <!-- Set the navbar logo size -->
   <style>
@@ -29,9 +30,20 @@
 	  subMaxLevel: 2,
 	  autoHeader: true,
 	  executeScript: true,
-	  homepage: 'introduction.md'
+	  homepage: 'introduction.md',
+      darklightTheme: {
+        dark: {
+          accent: '#1789C7',
+          coverBackground: 'linear-gradient(180deg, #126B9B 0%, #091A28 80%',
+        },
+        light: {
+          accent: '#1789C7',
+          coverBackground: 'linear-gradient(180deg, #5AB9EC 0%,#FFFFFF 80%',
+        }
+      }
     };
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"></script>
 </body>
 </html>
