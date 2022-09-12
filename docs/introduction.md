@@ -9,7 +9,7 @@ acquisition projects on one single platform. It’s **scalable** architecture al
 <p align="center">
   <br>
   <br>
-  <img src="_media/cloudiO-logo-light.png" style="width:20%" />
+  <img src="_media/cloudiO-logo-dark.png" style="width:20%" />
   <br>
   <br>
 </p>
