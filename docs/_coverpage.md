@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-![logo](_media/cloudio.png)
+![logo](_media/cloudiO-logo-light.png)
 
 
 ## [A scalable open source IoT solution.](/)
