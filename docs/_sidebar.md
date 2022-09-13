@@ -6,7 +6,7 @@
 	- [The data structure](/about_cloudio/data_structure#the-data-structure)
 	- [The architecture](/about_cloudio/architecture#the-architecture)
 - Getting Started
-	- [Quickstart guide](/getting_started/quickstart_guide "The greatest guide in the world")
+	- [Quickstart guide](/getting_started/quickstart_guide)
 	- [Deploy cloud hosted infrastructure](/deploy/deploy)
 	- [Develop a cloud.iO endpoint](/develop_endpoint/develop_endpoint)
 	- [Commission a cloud.iO endpoint](/commission/commission)
