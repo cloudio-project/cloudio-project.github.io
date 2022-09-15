@@ -90,7 +90,7 @@ Check that everything is correctly set up by testing the connection with the ser
 
 ## Read the data
 If not done automatically at the previous step, please entre your endpoint UUID below. 
-By hitting the start button, you will enable the polling of the value of the attribute *"myNode/myObject/myMeasure"* of your endpoint.
+By hitting the start button, you will enable the polling of the attribute *"myNode/myObject/myMeasure"* value.
 <div class="container">
    <table>
       <tr>
@@ -109,13 +109,14 @@ By hitting the start button, you will enable the polling of the value of the att
          type="submit"> 
       Start  
       </button> 
-	  <output id="attribute">/myNode/myObject/myMeasure: </output>
+	  <output id="attribute"><b>/myNode/myObject/myMeasure:</b> </output>
    </div>
 </div>
+<iframe id="download_frame" style="display:none;"></iframe>
 
 
-
-> Information
+> Note: For performance reasons, the attributes values are stored every 3s in influxDB, that's why you can't see every value changes. 
+If necessary, you can connect through Stomp/Websocket or MQTT to get notified on every change.
 
 ?> Question
 
@@ -159,6 +160,44 @@ By hitting the start button, you will enable the polling of the value of the att
 			$("#swagger_url").text($("#hostname").val() + "/swagger-ui/index.html#/Cors Management/postOrigin").show();
 			$("#swagger_url").attr("href", $("#swagger_url").text());
 		});
+		
+	  $("#btn-certs").click(function () {
+		var host = $("#hostname").val();
+		var user = $("#username").val();
+		var pass = $("#password").val();
+		var uuid = "";
+		
+		if(!host)
+			alert("Hostname cannot be empty!");
+		else if(!user)
+			alert("Username cannot be empty!");
+		else if(!pass)
+			alert("Password cannot be empty!");
+		else{	
+			var formData = {};
+			$.ajax({
+				url : host + "/api/v1/endpoints?friendlyName=quickstart",
+				type: "POST",
+				data : formData,
+				crossDomain: true,
+				headers: {
+					"Authorization": "Basic " + btoa(user + ":" + pass)
+                },
+				success: function(data, textStatus, jqXHR)
+				{
+					uuid = data.uuid;
+					$("#uuid").val(uuid);
+					
+					set_properties(host, user, pass, uuid);
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					alert("Error while creating endpoint");
+				}
+			});
+		}
+	  });
+		
 	  $("#btn-read").click(function () {
 		var host = $("#hostname").val();
 		var user = $("#username").val();
@@ -212,7 +251,56 @@ By hitting the start button, you will enable the polling of the value of the att
 	
 	function display_my_measure(id, value) {
 		console.log(id + ": " + value.value);
-		$("#attribute").html("myNode/myObject/myMeasure: " + value.value);
+		$("#attribute").html("<b>myNode/myObject/myMeasure:</b> " + value.value);
+	}
+	
+	function set_properties(host, user, pass, uuid) {
+		var tab = host.replace("http://", "").replace("https://", "").split(":");
+		var formData = {
+		  "customProperties": {
+			"ch.hevs.cloudio.endpoint.hostUri": "ssl://" + tab[0],
+			"ch.hevs.cloudio.endpoint.ssl.authorityCert": "file:/C:/Users/.../cloudio-endpoint-java-example/src/main/resources/cloud.io/authority.jks",
+			"ch.hevs.cloudio.endpoint.ssl.clientCert": "file:/C:/Users/.../cloudio-endpoint-java-example/src/main/resources/cloud.io/" + uuid + ".p12",
+			"ch.hevs.cloudio.endpoint.ssl.verifyHostname": "false"
+		  }
+		};
+		console.log(formData);
+		$.ajax({
+			url : host + "/api/v1/endpoints/" + uuid + "/provisionToken",
+			type: "POST",
+			data : JSON.stringify(formData),
+			crossDomain: true,
+			headers: {
+				"Authorization": "Basic " + btoa(user + ":" + pass),
+				"Content-Type": "application/json"
+			},
+			success: function(data, textStatus, jqXHR)
+			{
+				get_certificates(host, data);
+			},
+			error: function (jqXHR, textStatus, errorThrown)
+			{
+				alert("Error while trying to generate certificates");
+			}
+		});
+    }
+	
+	function get_certificates(host, token){
+		
+		fetch(host + "/api/v1/provision/" + token, {headers: {"Accept": "application/java-archive"}})
+		  .then(resp => resp.blob())
+		  .then(blob => {
+			const url = window.URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.style.display = 'none';
+			a.href = url;
+			// the filename you want
+			a.download = 'quickstart-certificates.zip';
+			document.body.appendChild(a);
+			a.click();
+			window.URL.revokeObjectURL(url);
+		  })
+		  .catch(() => alert('Error while downloading the certificates!'));
 	}
 
 </script>
