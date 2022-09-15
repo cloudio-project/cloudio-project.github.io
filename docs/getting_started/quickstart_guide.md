@@ -2,10 +2,10 @@
 
 ## Prerequesites
 
-- A running cloud.iO services instance. See the getting started guide: [Deploy cloud hosted infrastructure](/deploy/deploy).
+- A running **cloud.iO services** instance. See the getting started guide: [Deploy cloud hosted infrastructure](/deploy/deploy).
 - Java JDK 11+ installed.
 
-Please, enter your cloud.iO servers hostname:
+Please, enter your cloud.iO servers **hostname**:
 <div class="container">
 <table>
       <tr>
@@ -22,8 +22,8 @@ Please, enter your cloud.iO servers hostname:
 
 ## Set the CORS policy
 
-This guide will send HTTP REST commands to your cloud.iO server. To allow a webpage to communicate with the cloud.iO server, 
-you have to set up its CORS policy (more information can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)).
+This guide will send HTTP REST commands to your **cloud.iO** server. To allow a webpage to communicate with the **cloud.iO** server, 
+you have to set up its **CORS policy** (more information about **CORS** can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)).
 
 - To do this, connect to the cloud.iO Swagger UI at 
 <body>
@@ -38,7 +38,7 @@ you have to set up its CORS policy (more information can be found [here](https:/
   <br>
 </p>
 
-- You will be asked to log in. Use your admin login.
+- You will be asked to log in. Use your **admin login**.
 - Verify that the server responds with a *204* HTTP code:
 
 <p align="center">
@@ -78,6 +78,7 @@ Check that everything is correctly set up by testing the connection with the ser
 </div>
 
 ## Get the certificates
+You can now **create** an new **endpoint** and generate its **certificates** by clicking the button below:
 <div class="form-group"> 
       <button id="btn-certs"
          class="btn btn-success btn-lg float-right" 
@@ -86,11 +87,30 @@ Check that everything is correctly set up by testing the connection with the ser
       </button> 
 </div>
 
-## Run the demo endpoint java
+## Run the example endpoint java
+
+This section describes how to run your very first cloud.iO endpoint. This endpoint implements a simple counter that increments its value every 1s.
+- **Clone** or **download** the [cloudio-endpoint-java-example](https://github.com/cloudio-project/cloudio-endpoint-java-example) repository.
+- To be able to get the [cloudio-endpoint-java](https://github.com/cloudio-project/cloudio-endpoint-java) library, you'll need to fill the *gradle.properties* file with your Github **username** and 
+a **personal access token**. Don't know how to generate a github **personal access token**? Go to [the Github documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+- Extract the certificates in *cloudio-endpoint-java-example/src/main/resources/cloud.io/*.
+- Complete the *clientCert* and *authorityCert* path in *cloudio-endpoint-java-example/src/main/resources/cloud.io/example.properties*.
+- Run the demo endpoint<br>Linux:
+```bash
+./gradlew build
+./gradlew run
+```
+<br>Windows:
+```bash
+gradlew.bat build
+gradlew.bat run
+```
+
+You should now see the log *"Endpoint is online"* in the console.
 
 ## Read the data
-If not done automatically at the previous step, please entre your endpoint UUID below. 
-By hitting the start button, you will enable the polling of the attribute *"myNode/myObject/myMeasure"* value.
+If not done automatically at the previous step, please entre your endpoint **UUID** below. 
+By hitting the start button, you will enable the polling of the attribute *myNode/myObject/myMeasure* value.
 <div class="container">
    <table>
       <tr>
@@ -106,9 +126,7 @@ By hitting the start button, you will enable the polling of the attribute *"myNo
    <div class="form-group"> 
       <button id="btn-read"
          class="btn btn-success btn-lg float-right" 
-         type="submit"> 
-      Start  
-      </button> 
+         type="submit">Start</button> 
 	  <output id="attribute"><b>/myNode/myObject/myMeasure:</b> </output>
    </div>
 </div>
@@ -117,8 +135,6 @@ By hitting the start button, you will enable the polling of the attribute *"myNo
 
 > Note: For performance reasons, the attributes values are stored every 3s in influxDB, that's why you can't see every value changes. 
 If necessary, you can connect through Stomp/Websocket or MQTT to get notified on every change.
-
-?> Question
 
 <script type="text/javascript">
 	
@@ -287,7 +303,7 @@ If necessary, you can connect through Stomp/Websocket or MQTT to get notified on
 	
 	function get_certificates(host, token){
 		
-		fetch(host + "/api/v1/provision/" + token, {headers: {"Accept": "application/java-archive"}})
+		fetch(host + "/api/v1/provision/" + token + "?propertiesFileName=example", {headers: {"Accept": "application/java-archive"}})
 		  .then(resp => resp.blob())
 		  .then(blob => {
 			const url = window.URL.createObjectURL(blob);
@@ -295,7 +311,7 @@ If necessary, you can connect through Stomp/Websocket or MQTT to get notified on
 			a.style.display = 'none';
 			a.href = url;
 			// the filename you want
-			a.download = 'quickstart-certificates.zip';
+			a.download = 'quickstart-certificates.jar';
 			document.body.appendChild(a);
 			a.click();
 			window.URL.revokeObjectURL(url);
