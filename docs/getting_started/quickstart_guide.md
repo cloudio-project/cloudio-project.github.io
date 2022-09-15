@@ -30,7 +30,7 @@ you have to set up its CORS policy (more information can be found [here](https:/
 	
 	<a id="swagger_url" target="_blank" href="your_server_ip:8080/swagger-ui/index.html#/Cors Management/postOrigin">your_server_ip:8080/swagger-ui/index.html#/CorsManagement/postOrigin</a>
 </body>
-- Click "Try it out", add "\*" in the origin field, then click "Execute":
+- Click *"Try it out"*, add "\*" in the origin field, then click *"Execute"*:
 
 <p align="center">
   <br>
@@ -39,7 +39,7 @@ you have to set up its CORS policy (more information can be found [here](https:/
 </p>
 
 - You will be asked to log in. Use your admin login.
-- Verify that the server responds with a 204 HTTP code:
+- Verify that the server responds with a *204* HTTP code:
 
 <p align="center">
   <br>
@@ -69,24 +69,62 @@ Check that everything is correctly set up by testing the connection with the ser
       </tr>
    </table>
    <div class="form-group"> 
-      <button id="btn-certs"
+      <button id="btn-test"
          class="btn btn-success btn-lg float-right" 
-         type="submit" style="background-color: #188AC7;
-		  border: none;
-		  color: white;
-		  padding: 10px 32px;
-		  text-align: center;
-		  text-decoration: none;
-		  display: inline-block;
-		  font-size: 14px;"> 
+         type="submit"> 
       Test  
       </button> 
    </div>
 </div>
 
+## Get the certificates
+<div class="form-group"> 
+      <button id="btn-certs"
+         class="btn btn-success btn-lg float-right" 
+         type="submit"> 
+      Get certificates  
+      </button> 
+</div>
+
+## Run the demo endpoint java
+
+## Read the data
+If not done automatically at the previous step, please entre your endpoint UUID below. 
+By hitting the start button, you will enable the polling of the value of the attribute *"myNode/myObject/myMeasure"* of your endpoint.
+<div class="container">
+   <table>
+      <tr>
+         <th>UUID</th>
+      </tr>
+      <tr>
+         <td><input id="uuid"
+            class="form-control" 
+            type="text" 
+            placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"> </td>
+      </tr>
+   </table>
+   <div class="form-group"> 
+      <button id="btn-read"
+         class="btn btn-success btn-lg float-right" 
+         type="submit"> 
+      Start  
+      </button> 
+	  <output id="attribute">/myNode/myObject/myMeasure: </output>
+   </div>
+</div>
+
+
+
+> Information
+
+?> Question
+
 <script type="text/javascript">
+	
 	$(document).ready(function () {		
-	  $("#btn-certs").click(function () {
+	  var timer = null;
+	  
+	  $("#btn-test").click(function () {
 		var host = $("#hostname").val();
 		var user = $("#username").val();
 		var pass = $("#password").val();
@@ -108,11 +146,11 @@ Check that everything is correctly set up by testing the connection with the ser
                 },
 				success: function(data, textStatus, jqXHR)
 				{
-					alert("Successful connected!")
+					alert("Connection successful!");
 				},
 				error: function (jqXHR, textStatus, errorThrown)
 				{
-					alert("Error while trying to connect")
+					alert("Error while trying to connect");
 				}
 			});
 		}
@@ -121,17 +159,61 @@ Check that everything is correctly set up by testing the connection with the ser
 			$("#swagger_url").text($("#hostname").val() + "/swagger-ui/index.html#/Cors Management/postOrigin").show();
 			$("#swagger_url").attr("href", $("#swagger_url").text());
 		});
+	  $("#btn-read").click(function () {
+		var host = $("#hostname").val();
+		var user = $("#username").val();
+		var pass = $("#password").val();
+		var uuid = $("#uuid").val();
+		
+		if($("#btn-read").text() === "Start"){
+				if(!host)
+					alert("Hostname cannot be empty!");
+				else if(!user)
+					alert("Username cannot be empty!");
+				else if(!pass)
+					alert("Password cannot be empty!");
+				else if(!uuid)
+					alert("UUID cannot be empty!");	
+				else{
+					$("#btn-read").html("Stop");
+						timer = setInterval(function(){
+						const attr = read_attribute(host, user, pass, uuid + "/myNode/myObject/myMeasure", display_my_measure);						
+					}, 3000);					
+				}
+		}
+		else{
+			$("#btn-read").html("Start");
+			clearInterval(timer);
+			timer = null;
+		}
+	  });
 	});
+	function read_attribute(host, user, pass, attr, _callback) {
+		var formData = {};
+			$.ajax({
+				url : host + "/api/v1/data/" + attr,
+				type: "GET",
+				data : formData,
+				crossDomain: true,
+				headers: {
+					"Authorization": "Basic " + btoa(user + ":" + pass)
+                },
+				success: function(data, textStatus, jqXHR)
+				{
+					console.log(data);
+					_callback(attr, data);
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					alert("Error while trying to reading data");
+				}
+			});
+    }
+	
+	function display_my_measure(id, value) {
+		console.log(id + ": " + value.value);
+		$("#attribute").html("myNode/myObject/myMeasure: " + value.value);
+	}
+
 </script>
-
-## Get the certificates
-
-## Run the demo endpoint
-
-
-> Information
-
-?> Question
-
-
 
