@@ -13,8 +13,8 @@ cd cloudio-deployment-examples/develop-latest/docker-compose-single-node-persist
 sudo chmod +x *.sh
 sudo ./up.sh
 ```
-The cloud.io microservices, databases and message broker are now running. You can see in the log `Using 5U1VD0RVwqWd7rXbmH7j8p2+Jz7XCa/U8pE7dHR3HPU= as password for admin user`.
-This password is the admin password for the 2 databases, and the message broker. The REST API admin password is another one.
+The cloud.io microservices, databases and message broker are now running. The message `Using 5U1VD0RVwqWd7rXbmH7j8p2+Jz7XCa/U8pE7dHR3HPU= as password for admin user` should appears in the log.
+This is the admin password used access the 2 databases, and the message broker. The REST API admin password is another one.
 
 ## Get the REST API admin password
 - Display all the running containers:
@@ -27,7 +27,7 @@ sudo docker logs **The CONTAINER ID you copied**
 ```
 - Search for the log `User repository is empty - creating default admin user 'admin' with password 'WTxhFMXpwc1WffFG'`. It's generated at the microservices startup, when the user repository is empty.
 
-?> Your cloud.iO server is now running on the port 80 of your machine!
+?> The cloud.iO server is now running on the port 80!
 
 ## Files and folders
 
