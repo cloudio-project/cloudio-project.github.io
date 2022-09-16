@@ -7,10 +7,10 @@
 	- [The architecture](/about_cloudio/architecture#the-architecture)
 - Getting Started
 	- [Quickstart guide](/getting_started/quickstart_guide)
-	- [Deploy cloud hosted infrastructure](/deploy/deploy)
-	- [Develop a cloud.iO endpoint](/develop_endpoint/develop_endpoint)
-	- [Commission a cloud.iO endpoint](/commission/commission)
-	- [Manage endpoint access permissions](/manage_access/manage_access)
-	- [Monitor and control data](monitor_control/monitor_control)
+	- [Deploy cloud hosted infrastructure](/getting_started/deploy)
+	- [Develop a cloud.iO endpoint](/getting_started/develop_endpoint)
+	- [Commission a cloud.iO endpoint](/getting_started/commission)
+	- [Manage endpoint access permissions](/getting_started/manage_access)
+	- [Monitor and control data](/getting_started/monitor_control)
 - Contribute
 	- [Contribute](contribute/contribute)

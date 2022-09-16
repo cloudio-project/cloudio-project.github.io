@@ -2,7 +2,7 @@
 
 ## Prerequesites
 
-- A running **cloud.iO services** instance. See the getting started guide: [Deploy cloud hosted infrastructure](/deploy/deploy).
+- A running **cloud.iO services** instance. See the getting started guide: [Deploy cloud hosted infrastructure](/getting_started/deploy).
 - Java JDK 11+ installed.
 
 Please, enter your cloud.iO servers **hostname**:
@@ -76,6 +76,17 @@ Check that everything is correctly set up by testing the connection with the ser
       </button> 
    </div>
 </div>
+
+!> If you followed the [Deploy cloud hosted infrastructure](/getting_started/deploy) guide, your server is in HTTP. As this web server is secured (HTTPs), 
+your browser will probably block the HTTP requests to your cloud.io server (more information about mixed content [here](https://support.mozilla.org/en-US/kb/mixed-content-blocking-firefox)). 
+To avoid this, disable the mixed content protection. 
+
+**Disable the mixed content protection:**
+
+In *Firefox*:
+- <img src="getting_started/_media/mixed_content_1.png" style="width:30%" />
+- <img src="getting_started/_media/mixed_content_2.png" style="width:30%" />
+- Retry to connect to the server.
 
 ## Get the certificates
 You can now **create** an new **endpoint** and generate its **certificates** by clicking the button below:

@@ -1,0 +1,31 @@
+        _                 _   _  ___
+    ___| | ___  _   _  __| | (_)/ _ \
+   / __| |/ _ \| | | |/ _` | | | | | |  Version:
+  | (__| | (_) | |_| | (_| |_| | |_| |  Spring-Boot version: 2.7.3
+   \___|_|\___/ \__,_|\__,_(_)_|\___/
+
+2022-09-16 06:46:49.549  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.549  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_dot1m20ogvuqadpgbma2wfh6j" of relation "cloudio_cors_allowed_origins" does not exist, skipping
+2022-09-16 06:46:49.552  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.552  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_es4yflm83lqbwn8w1wpqw8d2v" of relation "cloudio_endpoint_group" does not exist, skipping
+2022-09-16 06:46:49.554  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.554  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_86vgtuvhm8qt51112rhtgrugk" of relation "cloudio_provision_token" does not exist, skipping
+2022-09-16 06:46:49.558  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.558  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_bj2sson5rbj6r2f2sakdjlf92" of relation "cloudio_user" does not exist, skipping
+2022-09-16 06:46:49.560  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.560  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukftlnqs017s5k6bjpfa9wh65c3" of relation "cloudio_user_endpoint_group_permission" does not exist, skipping
+2022-09-16 06:46:49.562  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.562  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukq7uyejqi1hl4qt1kvjac60m9m" of relation "cloudio_user_endpoint_permission" does not exist, skipping
+2022-09-16 06:46:49.564  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.564  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_ep5gi4lxqvqmya0ntos4n32kt" of relation "cloudio_user_group" does not exist, skipping
+2022-09-16 06:46:49.571  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.571  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukt7ggmme0gy0l40bsuqn5a49wp" of relation "cloudio_user_group_endpoint_group_permission" does not exist, skipping
+2022-09-16 06:46:49.573  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2022-09-16 06:46:49.573  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukp352r2xpo2xn8r9gwwqcwqr78" of relation "cloudio_user_group_endpoint_permission" does not exist, skipping
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by retrofit2.Platform (file:/app/libs/retrofit-2.9.0.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+WARNING: Please consider reporting this to the maintainers of retrofit2.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2022-09-16 06:46:52.129  WARN 1 --- [           main] c.h.c.c.s.CloudioUserDetailsService      : *** User repository is empty - creating default admin user 'admin' with password 'QRQxHEkp8JRVJ3cY' ***
+2022-09-16 06:46:52.678  WARN 1 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
