@@ -25,7 +25,9 @@ A **node** is composed by one or more **objects**.
 ## Object
 An **object** is identified by its parent element *(**node** or **object**)* identifier, plus an **objectName**. The endpoint is free to choose the **objectName**.  
 An **object** is used to organize the data and **attributes** inside a **node**.
-> The **objects** in **objects** feature allows **cloud.iO** to support flexible and extensible structures.
+> The **objects** in **objects** feature allows **cloud.iO** to support flexible and extensible structures. 
+To identify an object contained in another one, simply append the child object name to the parent identifier:<br>
+*UUID/nodeName/objectName1/objectName2*
 
 An **object** is composed by none, one or more **objects** and one or more **attributes**.
 
