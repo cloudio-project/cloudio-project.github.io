@@ -10,10 +10,15 @@
 	- [Deploy cloud hosted infrastructure](/getting_started/deploy)
 	- [Develop a cloud.iO endpoint](/getting_started/develop_endpoint)
 	- [Commission a cloud.iO endpoint](/getting_started/commission)
-	- [Manage endpoint access permissions](/getting_started/manage_access)	
 - Data Access
 	- [Data access / application](/data_access/data)
 - Endpoint Management
 	- [UUID - friendlyName](/endpoint_management/friendly_name_uuid)
+	- [Endpoint groups](/endpoint_management/endpoint_groups)
+- Access Permissions
+	- [Endpoint permissions](/access_permissions/endpoint_permissions)
+	- [Element permissions](/access_permissions/element_permissions)
+- User Management
+	- [Authorities](/user_management/authorities)
 - Contribute
-	- [Contribute](contribute/contribute)
+	- [Contribute](/contribute/contribute)

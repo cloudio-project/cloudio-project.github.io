@@ -1,1 +1,0 @@
-# Manage endpoint access permissions
