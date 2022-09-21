@@ -198,8 +198,6 @@ Every attribute change can be read on event. There are 2 options for this, **STO
 It is recommended to use STOMP/Websocket instead of MQTT. An MQTT application must detect and support both CBOR and JSON message formats (unless all the endpoints use a unique message format).
 When using STOMP/Websocket, all the messages are converted to JSON.
 
->For javascript developers: cloud.iO support both SockJS and plain Websockets. 
-
 A python STOMP/Websocket client code example:
 ```python
 import websocket
@@ -227,4 +225,17 @@ client.subscribe(id='12345', destination='/log/afa305a7-a4b0-4830-81f5-82572d4a2
 
 while True:
     time.sleep(1)
+```
+
+A javascript STOMP/Websocket client code example:
+
+``` js
+var url = "ws://192.168.37.130:8080/api/v1/events";
+var stompClient = Stomp.client(url);
+stompClient.connect({Authorization: 'Basic YWRtaW46RU1DMWVJalloQ3RvYW9zdw=='}, function (frame) {
+	console.log('Connected: ' + frame);
+	stompClient.subscribe('/update/8aecad7e-2e69-4d0b-a656-a88395dbc2cf/myNode/myObject/myMeasure', function (message) {
+		console.log(JSON.parse(message.body).value)
+	});
+});
 ```

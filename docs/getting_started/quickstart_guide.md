@@ -143,15 +143,12 @@ Hitting the start button will enable the polling of the attribute *myNode/myObje
 </div>
 <iframe id="download_frame" style="display:none;"></iframe>
 
-
-> Note: For performance reasons, the attributes values are stored every 3s in influxDB, that's why every value changes can't be seen. 
-
 > More information about the data access in [Data access / application](/data_access/data) section.
 
 <script type="text/javascript">
 	
 	$(document).ready(function () {		
-	  var timer = null;
+	  var stompClient = null;
 	  
 	  $("#btn-test").click(function () {
 		var host = $("#hostname").val();
@@ -243,15 +240,20 @@ Hitting the start button will enable the polling of the attribute *myNode/myObje
 					alert("UUID cannot be empty!");	
 				else{
 					$("#btn-read").html("Stop");
-						timer = setInterval(function(){
-						const attr = read_attribute(host, user, pass, uuid + "/myNode/myObject/myMeasure", display_my_measure);						
-					}, 3000);					
+					var url = "ws://192.168.37.130:8080/api/v1/events";
+					stompClient = Stomp.client(url);
+					stompClient.connect({Authorization: 'Basic YWRtaW46RU1DMWVJalloQ3RvYW9zdw=='}, function (frame) {
+						console.log('Connected: ' + frame);
+						stompClient.subscribe('/update/8aecad7e-2e69-4d0b-a656-a88395dbc2cf/myNode/myObject/myMeasure', function (message) {
+							console.log(JSON.parse(message.body));
+							display_my_measure("", JSON.parse(message.body));
+						});
+					});					
 				}
 		}
 		else{
 			$("#btn-read").html("Start");
-			clearInterval(timer);
-			timer = null;
+			stompClient.disconnect();
 		}
 	  });
 	});
