@@ -240,11 +240,11 @@ Hitting the start button will enable the polling of the attribute *myNode/myObje
 					alert("UUID cannot be empty!");	
 				else{
 					$("#btn-read").html("Stop");
-					var url = "ws://192.168.37.130:8080/api/v1/events";
+					var url = host.replace("http://", "ws://").replace("https://, "wss://") + "/api/v1/events";
 					stompClient = Stomp.client(url);
-					stompClient.connect({Authorization: 'Basic YWRtaW46RU1DMWVJalloQ3RvYW9zdw=='}, function (frame) {
+					stompClient.connect({Authorization: "Basic " + btoa(user + ":" + pass)}, function (frame) {
 						console.log('Connected: ' + frame);
-						stompClient.subscribe('/update/8aecad7e-2e69-4d0b-a656-a88395dbc2cf/myNode/myObject/myMeasure', function (message) {
+						stompClient.subscribe('/update/' + uuid + '/myNode/myObject/myMeasure', function (message) {
 							console.log(JSON.parse(message.body));
 							display_my_measure("", JSON.parse(message.body));
 						});
