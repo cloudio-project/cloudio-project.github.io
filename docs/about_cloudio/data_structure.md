@@ -1,10 +1,10 @@
-# The data structure
+# The data model
 
 A **cloud.iO endpoint** is composed of **nodes**, **objects** and **attributes**:
 
 <p align="center">
   <img src="about_cloudio/_media/data_structure.svg" style="width:70%" />
-  <div class="caption" style="text-align: center">Endpoint data structure</div>
+  <div class="caption" style="text-align: center">Endpoint data model</div>
 </p>
 
 Every element of the data model can be identified by an **identifier** *(ID)*.

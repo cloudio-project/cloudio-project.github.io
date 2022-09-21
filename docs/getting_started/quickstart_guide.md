@@ -146,7 +146,7 @@ Hitting the start button will enable the polling of the attribute *myNode/myObje
 
 > Note: For performance reasons, the attributes values are stored every 3s in influxDB, that's why every value changes can't be seen. 
 
-> More information about the data access in [data access / application](/getting_started/data) section.
+> More information about the data access in [Data access / application](/data_access/data) section.
 
 <script type="text/javascript">
 	

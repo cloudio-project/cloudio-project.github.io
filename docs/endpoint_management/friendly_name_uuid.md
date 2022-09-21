@@ -46,4 +46,4 @@ GET http://**your cloudio hostname**/api/v1/endpoints?friendlyName=**the friendl
 	}
 ]
 ```
-!> As the friendlyNames are not unique, you could have multiple endpoints as result.
+!> As the friendlyNames are not unique, you could have many endpoints as result.
