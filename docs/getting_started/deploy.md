@@ -9,7 +9,7 @@
 ## Run the cloudio server
 ```bash
 git clone https://github.com/cloudio-project/cloudio-deployment-examples.git
-cd cloudio-deployment-examples/develop-latest/docker-compose-single-node-persistent/
+cd cloudio-deployment-examples/develop-latest/docker-compose-single-node/
 sudo chmod +x *.sh
 sudo ./up.sh
 ```

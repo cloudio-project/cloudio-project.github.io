@@ -3,110 +3,80 @@
 ## Prerequesites
 
 - A running **cloud.iO services** instance. See the getting started guide: [Deploy cloud hosted infrastructure](/getting_started/deploy).
-- Java JDK 11+ installed.
+- **Java JDK 11+ installed.**
 
-Please, enter your cloud.iO servers **hostname**:
-<div class="container">
-<table>
-      <tr>
-         <th>Hostname</th>
-      </tr>
-      <tr>
-         <td><input id="hostname"
-            class="form-control" 
-            type="text" 
-            placeholder="http://127.0.0.1:8080"></td>
-      </tr>
-   </table>
-</div>
+## Create an endpoint
 
-## Set the CORS policy
+- Open to the cloudio swagger interface at **`http://cloudio_host/swagger-ui/index.html`**.
+- Under *Endpoint management*, click on *Create a new endpoint.*, then *Try it out* and *Execute*.
+- The server responds with the new endpoint informations, including its **UUID**:
+<p align="center">
+  <br>
+  <img src="getting_started/_media/create_endpoint.png" style="width:50%" />
+  <br>
+</p>
+Save it somewhere.
 
-This guide will send HTTP REST commands to your **cloud.iO** server. To allow a webpage to communicate with the **cloud.iO** server, 
-you have to set up its **CORS policy** (more information about **CORS** can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)).
+## Generate certificates
 
-- Connect to the cloud.iO Swagger UI at 
-<body>
-	
-	<a id="swagger_url" target="_blank" href="your_server_ip:8080/swagger-ui/index.html#/Cors Management/postOrigin">your_server_ip:8080/swagger-ui/index.html#/CorsManagement/postOrigin</a>
-</body>
-- Click *"Try it out"*, add "\*" in the origin field, then click *"Execute"*:
+- Open to the cloudio swagger interface at **`http://cloudio_host/swagger-ui/index.html`**.
+- Under *Endpoint provisioning*, click on *Get endpoint configuration information for a given endpoint.*.
+- Select *application/java-archive* for the response media type:
 
 <p align="center">
   <br>
-  <img src="getting_started/_media/cors_1.png" style="width:30%" />
+  <img src="getting_started/_media/create_certs.png" style="width:50%" />
   <br>
 </p>
 
-- A login will be asked. Use the **REST API admin login** obtained during the deployement.
-- Verify that the server responds with a *204* HTTP code:
-
+- Enter the endpoint UUID as parameter:
 <p align="center">
   <br>
-  <img src="getting_started/_media/cors_2.png" style="width:40%" />
+  <img src="getting_started/_media/create_certs_2.png" style="width:50%" />
+  <br>
+</p>
+- Click *Execute* and download the jar archive.
+
+!> The jar file obtained is not an executable file. It is a jar archive that contains the certificates.
+
+## Get an example endpoint
+**Clone** or **download** the [cloudio-endpoint-java-example](https://github.com/cloudio-project/cloudio-endpoint-java-example) repository.
+
+## Github Packages configuration
+The [cloudio-endpoint-java](https://github.com/cloudio-project/cloudio-endpoint-java) is hosted on Github Packages.
+
+As the login is mandatory to read a Github package, you'll need to fill the *gradle.properties* file with your Github **username** and 
+a **personal access token**. Don't know how to generate a github **personal access token**? 
+Go to [the Github documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+## Extract the certificates
+
+- Copy the certificates jar archive in *cloudio-endpoint-java-example/src/main/resources/cloud.io/*.
+- Extract the files contained in the jar archive:
+<p align="center">
+  <br>
+  <img src="getting_started/_media/extract.png" style="width:50%" />
   <br>
 </p>
 
-!> All origins are now accepted. It is recommended to not use this CORS configuration in a production environnement.
+## Fill the properties file
 
-Check that everything is correctly set up by testing the connection with the server:
+- Copy the content of **xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.properties** and paste it in **example.properties**.
+- Complete *hostname*, *clientCert* and *authorityCert* path in **example.properties**.
+- A filled *example.properties*:
+```
+ch.hevs.cloudio.endpoint.hostUri=ssl://192.168.37.130
+ch.hevs.cloudio.endpoint.ssl.authorityCert=file:/C:/Users/myUsername/Desktop/cloudio-endpoint-java-example-main/src/main/resources/cloud.io/authority.jks
+ch.hevs.cloudio.endpoint.ssl.clientCert=file:/C:/Users/myUsername/Desktop/cloudio-endpoint-java-example-main/src/main/resources/cloud.io/8aecad7e-2e69-4d0b-a656-a88395dbc2cf.p12
+ch.hevs.cloudio.endpoint.ssl.verifyHostname=false
+ch.hevs.cloudio.endpoint.uuid=8aecad7e-2e69-4d0b-a656-a88395dbc2cf
+ch.hevs.cloudio.endpoint.ssl.clientPassword=qTAGQYkNtFMTJiQU
+ch.hevs.cloudio.endpoint.ssl.authorityPassword=qTAGQYkNtFMTJiQU
+```
 
-<div class="container">
-   <table>
-      <tr>
-         <th>Username</th>
-         <th>Password</th>
-      </tr>
-      <tr>
-         <td><input id="username"
-            class="form-control" 
-            type="text" 
-            placeholder="admin"> </td>
-         <td><input id="password"
-            class="form-control" 
-            type="password" 
-            placeholder="password"> </td>
-      </tr>
-   </table>
-   <div class="form-group"> 
-      <button id="btn-test"
-         class="btn btn-success btn-lg float-right" 
-         type="submit"> 
-      Test  
-      </button> 
-   </div>
-</div>
+## Run the endpoint
 
-!> If you followed the [Deploy cloud hosted infrastructure](/getting_started/deploy) guide, your server is in HTTP. As this web server is secured (HTTPs), 
-your browser will probably block the HTTP requests to your cloud.io server (more information about mixed content [here](https://support.mozilla.org/en-US/kb/mixed-content-blocking-firefox)). 
-To avoid this, disable the mixed content protection. 
-
-**Disable the mixed content protection:**
-
-In *Firefox*:
-- <img src="getting_started/_media/mixed_content_1.png" style="width:30%" />
-- <img src="getting_started/_media/mixed_content_2.png" style="width:30%" />
-- Retry to connect to the server.
-
-## Get the certificates
-A new **endpoint** can now be created and its **certificates** generated by clicking the button below:
-<div class="form-group"> 
-      <button id="btn-certs"
-         class="btn btn-success btn-lg float-right" 
-         type="submit"> 
-      Get certificates  
-      </button> 
-</div>
-
-## Run the example endpoint java
-
-This section describes how to run your very first cloud.iO endpoint. This endpoint implements a simple counter that increments its value every 1s.
-- **Clone** or **download** the [cloudio-endpoint-java-example](https://github.com/cloudio-project/cloudio-endpoint-java-example) repository.
-- To be able to get the [cloudio-endpoint-java](https://github.com/cloudio-project/cloudio-endpoint-java) library, you'll need to fill the *gradle.properties* file with your Github **username** and 
-a **personal access token**. Don't know how to generate a github **personal access token**? Go to [the Github documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-- Extract the certificates in *cloudio-endpoint-java-example/src/main/resources/cloud.io/*.
-- Complete the *clientCert* and *authorityCert* path in *cloudio-endpoint-java-example/src/main/resources/cloud.io/example.properties*.
-- Run the demo endpoint<br>Linux:
+Linux:
 ```bash
 ./gradlew build
 ./gradlew run
@@ -119,219 +89,5 @@ gradlew.bat run
 
 You should now see the log *"Endpoint is online"* in the console.
 
-## Read the data
-If not done automatically at the previous step, please entre the endpoint **UUID** below. 
-Hitting the start button will enable the polling of the attribute *myNode/myObject/myMeasure* value.
-<div class="container">
-   <table>
-      <tr>
-         <th>UUID</th>
-      </tr>
-      <tr>
-         <td><input id="uuid"
-            class="form-control" 
-            type="text" 
-            placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"> </td>
-      </tr>
-   </table>
-   <div class="form-group"> 
-      <button id="btn-read"
-         class="btn btn-success btn-lg float-right" 
-         type="submit">Start</button> 
-	  <output id="attribute"><b>/myNode/myObject/myMeasure:</b> </output>
-   </div>
-</div>
-<iframe id="download_frame" style="display:none;"></iframe>
 
-> More information about the data access in [Data access / application](/data_access/data) section.
-
-<script type="text/javascript">
-	
-	$(document).ready(function () {		
-	  var stompClient = null;
-	  
-	  $("#btn-test").click(function () {
-		var host = $("#hostname").val();
-		var user = $("#username").val();
-		var pass = $("#password").val();
-		if(!host)
-			alert("Hostname cannot be empty!");
-		else if(!user)
-			alert("Username cannot be empty!");
-		else if(!pass)
-			alert("Password cannot be empty!");
-		else{	
-			var formData = {};
-			$.ajax({
-				url : host + "/api/v1/account",
-				type: "GET",
-				data : formData,
-				crossDomain: true,
-				headers: {
-					"Authorization": "Basic " + btoa(user + ":" + pass)
-                },
-				success: function(data, textStatus, jqXHR)
-				{
-					alert("Connection successful!");
-				},
-				error: function (jqXHR, textStatus, errorThrown)
-				{
-					alert("Error while trying to connect");
-				}
-			});
-		}
-	  });
-	  $("#hostname").on("input", function () {		
-			$("#swagger_url").text($("#hostname").val() + "/swagger-ui/index.html#/Cors Management/postOrigin").show();
-			$("#swagger_url").attr("href", $("#swagger_url").text());
-		});
-		
-	  $("#btn-certs").click(function () {
-		var host = $("#hostname").val();
-		var user = $("#username").val();
-		var pass = $("#password").val();
-		var uuid = "";
-		
-		if(!host)
-			alert("Hostname cannot be empty!");
-		else if(!user)
-			alert("Username cannot be empty!");
-		else if(!pass)
-			alert("Password cannot be empty!");
-		else{	
-			var formData = {};
-			$.ajax({
-				url : host + "/api/v1/endpoints?friendlyName=quickstart",
-				type: "POST",
-				data : formData,
-				crossDomain: true,
-				headers: {
-					"Authorization": "Basic " + btoa(user + ":" + pass)
-                },
-				success: function(data, textStatus, jqXHR)
-				{
-					uuid = data.uuid;
-					$("#uuid").val(uuid);
-					
-					set_properties(host, user, pass, uuid);
-				},
-				error: function (jqXHR, textStatus, errorThrown)
-				{
-					alert("Error while creating endpoint");
-				}
-			});
-		}
-	  });
-		
-	  $("#btn-read").click(function () {
-		var host = $("#hostname").val();
-		var user = $("#username").val();
-		var pass = $("#password").val();
-		var uuid = $("#uuid").val();
-		
-		if($("#btn-read").text() === "Start"){
-				if(!host)
-					alert("Hostname cannot be empty!");
-				else if(!user)
-					alert("Username cannot be empty!");
-				else if(!pass)
-					alert("Password cannot be empty!");
-				else if(!uuid)
-					alert("UUID cannot be empty!");	
-				else{
-					$("#btn-read").html("Stop");
-					var url = host.replace("http://", "ws://").replace("https://, "wss://") + "/api/v1/events";
-					stompClient = Stomp.client(url);
-					stompClient.connect({Authorization: "Basic " + btoa(user + ":" + pass)}, function (frame) {
-						console.log('Connected: ' + frame);
-						stompClient.subscribe('/update/' + uuid + '/myNode/myObject/myMeasure', function (message) {
-							console.log(JSON.parse(message.body));
-							display_my_measure("", JSON.parse(message.body));
-						});
-					});					
-				}
-		}
-		else{
-			$("#btn-read").html("Start");
-			stompClient.disconnect();
-		}
-	  });
-	});
-	function read_attribute(host, user, pass, attr, _callback) {
-		var formData = {};
-			$.ajax({
-				url : host + "/api/v1/data/" + attr,
-				type: "GET",
-				data : formData,
-				crossDomain: true,
-				headers: {
-					"Authorization": "Basic " + btoa(user + ":" + pass)
-                },
-				success: function(data, textStatus, jqXHR)
-				{
-					console.log(data);
-					_callback(attr, data);
-				},
-				error: function (jqXHR, textStatus, errorThrown)
-				{
-					alert("Error while trying to reading data");
-				}
-			});
-    }
-	
-	function display_my_measure(id, value) {
-		console.log(id + ": " + value.value);
-		$("#attribute").html("<b>myNode/myObject/myMeasure:</b> " + value.value);
-	}
-	
-	function set_properties(host, user, pass, uuid) {
-		var tab = host.replace("http://", "").replace("https://", "").split(":");
-		var formData = {
-		  "customProperties": {
-			"ch.hevs.cloudio.endpoint.hostUri": "ssl://" + tab[0],
-			"ch.hevs.cloudio.endpoint.ssl.authorityCert": "file:/C:/Users/.../cloudio-endpoint-java-example/src/main/resources/cloud.io/authority.jks",
-			"ch.hevs.cloudio.endpoint.ssl.clientCert": "file:/C:/Users/.../cloudio-endpoint-java-example/src/main/resources/cloud.io/" + uuid + ".p12",
-			"ch.hevs.cloudio.endpoint.ssl.verifyHostname": "false"
-		  }
-		};
-		console.log(formData);
-		$.ajax({
-			url : host + "/api/v1/endpoints/" + uuid + "/provisionToken",
-			type: "POST",
-			data : JSON.stringify(formData),
-			crossDomain: true,
-			headers: {
-				"Authorization": "Basic " + btoa(user + ":" + pass),
-				"Content-Type": "application/json"
-			},
-			success: function(data, textStatus, jqXHR)
-			{
-				get_certificates(host, data);
-			},
-			error: function (jqXHR, textStatus, errorThrown)
-			{
-				alert("Error while trying to generate certificates");
-			}
-		});
-    }
-	
-	function get_certificates(host, token){
-		
-		fetch(host + "/api/v1/provision/" + token + "?propertiesFileName=example", {headers: {"Accept": "application/java-archive"}})
-		  .then(resp => resp.blob())
-		  .then(blob => {
-			const url = window.URL.createObjectURL(blob);
-			const a = document.createElement('a');
-			a.style.display = 'none';
-			a.href = url;
-			// the filename you want
-			a.download = 'quickstart-certificates.jar';
-			document.body.appendChild(a);
-			a.click();
-			window.URL.revokeObjectURL(url);
-		  })
-		  .catch(() => alert('Error while downloading the certificates!'));
-	}
-
-</script>
 

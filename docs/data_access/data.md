@@ -181,8 +181,6 @@ Filters can be added to the requests. They must be passed as **URL parameter**.
 
 ## Write setpoints and parameters
 
-#### HTTP
-
 Setpoints and parameters attributes can be written using the REST API. The value is sent in **URL parameter**, always using the key *value*.
 ```http
 PUT http://**your cloudio hostname**/api/v1/history/**ID of the attribute**?value=**the value you want to send**
