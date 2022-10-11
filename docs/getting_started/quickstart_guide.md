@@ -43,7 +43,7 @@ Save it somewhere.
 **Clone** or **download** the [cloudio-endpoint-java-example](https://github.com/cloudio-project/cloudio-endpoint-java-example) repository.
 
 ## Github Packages configuration
-The [cloudio-endpoint-java](https://github.com/cloudio-project/cloudio-endpoint-java) is hosted on Github Packages.
+The [cloudio-endpoint-java library](https://github.com/cloudio-project/cloudio-endpoint-java) is hosted on Github Packages.
 
 As the login is mandatory to read a Github package, you'll need to fill the *gradle.properties* file with your Github **username** and 
 a **personal access token**. Don't know how to generate a github **personal access token**? 
