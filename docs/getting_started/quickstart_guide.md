@@ -89,5 +89,15 @@ gradlew.bat run
 
 You should now see the log *"Endpoint is online"* in the console.
 
+## Read the endpoint data
 
+Open a browser and enter:
+
+```http
+http://**cloudio hostname**/api/v1/data/**endpoint UUID**
+```
+
+The result will be the endpoint structure, filled with the last measured values.
+
+?>More information about data access can be found [here](/data_access/data).
 
