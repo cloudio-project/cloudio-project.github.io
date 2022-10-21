@@ -99,5 +99,5 @@ http://**cloudio hostname**/api/v1/data/**endpoint UUID**
 
 The result will be the endpoint structure, filled with the last measured values.
 
-?>More information about data access can be found [here](/data_access/data).
+?>More information about data access can be found [here](/data_access/introduction).
 

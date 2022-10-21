@@ -11,7 +11,11 @@
 	- [API documentation](/getting_started/api_documentation)
 	- [Commission a cloud.iO endpoint](/getting_started/commission)
 - Data Access
-	- [Data access / application](/data_access/data)
+	- [Introduction](/data_access/introduction)
+	- [HTTP](/data_access/http)
+	- [Websocket](/data_access/websocket)
+	- [MQTT](/data_access/mqtt)
+	- [Python Library](/data_access/python_library)
 - Endpoint Development
 	- [Introduction](/develop_endpoint/introduction)
 	- [Java](/develop_endpoint/java)
