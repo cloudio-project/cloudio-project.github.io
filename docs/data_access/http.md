@@ -174,7 +174,7 @@ Filters can be added to the requests. They must be passed as **URL parameter**.
 |max|Maximal number of entries to return.|-|1000|
 |separator|CSV Separator.|-|;|
 
-!> Requesting too many datapoints will lead to an http timeout.
+!> Requesting too many datapoints will lead to a http timeout.
 
 ## Write setpoints and parameters
 

@@ -6,7 +6,7 @@ It can read cloud.iO endpoints data model and values, write setpoints and parame
 
 ## Read/Write attributes
 ### Example
-```
+```python
 cc = CloudioConnector("https://example.com", "user", "password")
 
 sp = AttributeId(uuid='ba3d3ec2-23b6-45a8-827a-3b3133a69076', node='myNode', 
@@ -26,7 +26,7 @@ cc.write_value(sp, 1.0)
 ```
 ## Get attributes time series
 ### Example
-```
+```python
 cc = CloudioConnector("https://example.com", "user", "password")
 
 sp = AttributeId(uuid='ba3d3ec2-23b6-45a8-827a-3b3133a69076', node='myNode', 
@@ -51,7 +51,7 @@ data = cc.get_multiple_time_series([tm_mea, tm_sp])
 ```
 ## Attributes on changed events
 ### Example
-```
+```python
 class Example(AttributeListener):
     def __init__(self):
         cc = CloudioConnector("https://example.com", "user", "password")

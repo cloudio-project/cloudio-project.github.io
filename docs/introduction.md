@@ -16,9 +16,9 @@ acquisition projects on one single platform. It’s **scalable** architecture al
 
 - [Introduction](introduction)
 - About cloud.iO	
-	- [The cloud.iO ecosystem](/about_cloudio/ecosystem#the-cloudio-ecosystem)
-	- [The data model](/about_cloudio/data_structure#the-data-model)
-	- [The architecture](/about_cloudio/architecture#the-architecture)
+	- [The cloud.iO ecosystem](/about_cloudio/ecosystem)
+	- [The data model](/about_cloudio/data_structure)
+	- [The architecture](/about_cloudio/architecture)
 - Getting Started	
 	- [Quickstart guide](/getting_started/quickstart_guide)
 	- [Deploy cloud hosted infrastructure](/getting_started/deploy)

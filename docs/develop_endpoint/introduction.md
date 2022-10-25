@@ -38,7 +38,7 @@ CBOR (Concise Binary Object Representation) serialized MQTT messages payload.
 Endpoint can download and configure its certificates and connection informations from a *host url* and a *provisioning token*.
 
 ### Logs
-Endpoint logs are send to the cloud.
+Endpoint logs are sent to the cloud.
 
 ### Jobs
 Endpoint can execute local shell scripts on cloud demand.

@@ -6,11 +6,10 @@ The endpoint permissions can be granted to users/user groups on whole endpoints/
 Access to the endpoint is denied for the user or the group. This is the default permission if no other permission is available.
 
 #### ACCESS
-The user or group can access part of the endpoint and only the part of the endpoint's data model that is accessible is visible to the user.
+The user or group can access part of the endpoint, and only the part of the endpoint's data model that is accessible is visible to the user.
 
 #### BROWSE
-The user or group can access part of the endpoint but the complete data model of the endpoint can be discovered, even the parts the user
-does not have access to.
+The user or group can access part of the endpoint but the complete data model of the endpoint can be discovered, even the parts the user does not have access to.
      
 *ACCESS* + browsing of data model.
 
@@ -25,7 +24,7 @@ The user or group can read and modify from/to the endpoint's data model. This in
 *READ* + write to attributes.
 
 #### CONFIGURE
-The user or group can read and write from/to all attributes of the endpoint and additionally modify the endpoint's settings.
+The user or group can read and write from/to all attributes of the endpoint, and additionally modify the endpoint's settings.
 
 *WRITE* + endpoint settings access.
 
