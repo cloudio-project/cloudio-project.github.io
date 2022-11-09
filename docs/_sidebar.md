@@ -28,5 +28,12 @@
 	- [Element permissions](/access_permissions/element_permissions)
 - User Management
 	- [Authorities](/user_management/authorities)
+- Modbus cloud.iO gateway
+	- [Introduction](/modbus-cloudio-gateway/introduction)
+	- [Device model](/modbus-cloudio-gateway/device_model)
+	- [Data model](/modbus-cloudio-gateway/data_model)
+	- [Mapping](/modbus-cloudio-gateway/mapping)
+	- [Cloud.iO properties](modbus-cloudio-gateway/cloudio_properties)
+	- [Gateway configuration](modbus-cloudio-gateway/gateway_config)
 - Contribute
 	- [Contribute](/contribute/contribute)
