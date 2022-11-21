@@ -28,7 +28,7 @@ This file describes the cloudio structure for a device. One file corresponds to 
 The file is composed of one node, with some objects. In the objects are attributes. And the attributes have name, type, constraint and description (not mandatory).
 
 ### Type 
-type possible values : ["Boolean", "Integer", "Float", "String"]
+type possible values : ["Boolean", "Integer", "Number", "String"]
 
 
 ### Constraint

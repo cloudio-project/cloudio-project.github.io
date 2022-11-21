@@ -64,7 +64,7 @@ Go to [the Github documentation](https://docs.github.com/en/authentication/keepi
 - Copy the content of **xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.properties** and paste it in **example.properties**.
 - Complete *hostname*, *clientCert* and *authorityCert* path in **example.properties**.
 - A filled *example.properties*:
-```
+```properties
 ch.hevs.cloudio.endpoint.hostUri=ssl://192.168.37.130
 ch.hevs.cloudio.endpoint.ssl.authorityCert=file:/C:/Users/myUsername/Desktop/cloudio-endpoint-java-example-main/src/main/resources/cloud.io/authority.jks
 ch.hevs.cloudio.endpoint.ssl.clientCert=file:/C:/Users/myUsername/Desktop/cloudio-endpoint-java-example-main/src/main/resources/cloud.io/8aecad7e-2e69-4d0b-a656-a88395dbc2cf.p12

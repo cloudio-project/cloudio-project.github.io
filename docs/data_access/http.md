@@ -180,10 +180,10 @@ Filters can be added to the requests. They must be passed as **URL parameter**.
 
 Setpoints and parameters attributes can be written using the REST API. The value is sent in **URL parameter**, always using the key *value*.
 ```http
-PUT http://**your cloudio hostname**/api/v1/history/**ID of the attribute**?value=**the value you want to send**
+PUT http://**your cloudio hostname**/api/v1/data/**ID of the attribute**?value=**the value you want to send**
 ```
 
 Example:
 ```http
-PUT http://example.com/api/v1/history/17e5338e-2443-43a1-b382-2c101c12cc03/thermostat/room_1/temperature_setpoint?value=22.0
+PUT http://example.com/api/v1/data/17e5338e-2443-43a1-b382-2c101c12cc03/thermostat/room_1/temperature_setpoint?value=22.0
 ```
