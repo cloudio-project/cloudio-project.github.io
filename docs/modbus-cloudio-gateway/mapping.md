@@ -50,7 +50,7 @@ Refresh list declaration, with name and value in seconds
 **Example**
 
 ```yaml
-refresh-rate:   # in millisecond
+refresh-rate:   # in second
     daily: 86400   # every day
     slow: 15       # every 10s
     fast: 2        # every 2s
