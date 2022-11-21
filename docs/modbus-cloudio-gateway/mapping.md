@@ -30,7 +30,7 @@ fullname: Electrolyser EL2.1 Firmware 1.8.3 mapping template
 
 force-update: slow
 
-refresh-rate:   # in millisecond
+refresh-rate:   # in second
     daily: 86400   # every day
     slow: 15       # every 10s
     fast: 2        # every 2s
@@ -78,8 +78,8 @@ Description of the mapping link for one value.
 |**type**<br/>(Value Type)|`string`|Type of the value (bool, int, float, str or string)<br/>Enum: `"bool"`, `"int"`, `"float"`, `"str"`, `"string"`<br/>|yes|
 |**permission**<br/>(Value permission access)|`string`|Value permission access (R or W).<br/>Enum: `"R"`, `"W"`<br/>|yes|
 |**refresh\-rate**<br/>(Value Refresh rate)|`string`|Refresh rate of this value, refer to refresh-rate definition.<br/>|yes|
-|**out**<br/>(Read modification expression)|`string`|Modification expression before sending the value to cloud.iO.<br/>Emum: `"to_signed(val, nb_bits)"`, `"to_float32(val)"`|no|
-|**in**<br/>(Write modification expression)|`string`|Modification expression before writing the value to the device.<br/>`"to_unsigned(val, nb_bits)"`, `"from_float32(val)"`|no|
+|**out**<br/>(Read modification expression)|`string`|Modification expression before sending the value to cloud.iO.<br/>Enum: `"to_signed(val, nb_bits)"`, `"to_float32(val)"`|no|
+|**in**<br/>(Write modification expression)|`string`|Modification expression before writing the value to the device.<br/>Enum: `"to_unsigned(val, nb_bits)"`, `"from_float32(val)"`|no|
 
 **Item Additional Properties:** not allowed<br/>
 **Unique Items:** yes<br/>
