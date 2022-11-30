@@ -20,6 +20,7 @@
 	- [Introduction](/develop_endpoint/introduction)
 	- [Java](/develop_endpoint/java)
 	- [Python](/develop_endpoint/python)
+	- [Factory](/develop_endpoint/factory)
 - Endpoint Management
 	- [UUID - friendlyName](/endpoint_management/friendly_name_uuid)
 	- [Endpoint groups](/endpoint_management/endpoint_groups)

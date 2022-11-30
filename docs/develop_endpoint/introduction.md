@@ -13,6 +13,7 @@ The cloudio endpoints can be programmed in **Java** or **Python**. The Python ve
 |Token provisioning|:heavy_check_mark:|:x:|
 |Logs|:heavy_check_mark:|:x:|
 |Jobs|:heavy_check_mark:|:x:|
+|Factory|:x:|:x:|
 
 ## Endpoint library features
 
@@ -43,3 +44,5 @@ Endpoint logs are sent to the cloud.
 ### Jobs
 Endpoint can execute local shell scripts on cloud demand.
 
+### Factory
+File-based node generation and configuration.
