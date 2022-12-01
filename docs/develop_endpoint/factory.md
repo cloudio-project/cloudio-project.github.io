@@ -1,11 +1,14 @@
 # Factory
 
-Nodes can be generated and added automatically from a JSON description file. This file contains the cloud.iO node structure and a type. The type can be `CloudioNode` for a standard cloud.iO node, or any other class that inherits from `CloudioDynamicNode`.
+Nodes can be generated and added automatically from a JSON description file. This file contains the cloud.iO node structure and type. The type can be `CloudioNode` for a standard cloud.iO node, or any other class that inherits from `CloudioDynamicNode`.
 
-Additional properties can be added to the nodes or objects:
+Additional properties can be added to the endpoint, nodes or objects:
 
 ```json
 {  
+	"properties": {  
+		"myEndpointProperty": 1.0
+    }, 
    "nodes": {  
       "myNodeFromFactory": {  
          "type": "CloudioNode",  
@@ -53,7 +56,7 @@ Additional properties can be added to the nodes or objects:
 }
 ```
 
-To get the additional properties, the node class must implement `CloudioFactoryConfigurable`:
+To get the additional properties, the endpoint, node or object class must implement `CloudioFactoryConfigurable`:
 ```java
 public class MyNode extends CloudioDynamicNode implements CloudioFactoryConfigurable {  
   
