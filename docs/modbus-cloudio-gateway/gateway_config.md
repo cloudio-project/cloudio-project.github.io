@@ -37,13 +37,13 @@ comm-protocol:
     timeout: 5.0
   
 devices:
-  - name: gateway
+  - name: gateway # the cloud.io node name
     device-model: core/core
     comm-protocol: core_controller  # refer to one comm-protocol above
     mapping: core/core_map1
     cloudio-model: core/core
 
-  - name: Electrolyser-EL2-1
+  - name: Electrolyser-EL2-1 # the cloud.io node name
     device-model: Enapter/Electrolyser_EL2_1_FW1_8_3
     comm-protocol: modbus_enapter  # refer to one comm-protocol above
     mapping: Enapter/Electrolyser_EL2_1_FW1_8_3_map1
@@ -149,13 +149,13 @@ Device description of every device one by one.
 
 ```yaml
 devices:
-  - name: gateway
+  - name: gateway # the cloud.io node name
     device-model: core/core
     comm-protocol: core_controller  # refer to one comm-protocol above
     mapping: core/core_map1
     cloudio-model: core/core
 
-  - name: Electrolyser-EL2-1
+  - name: Electrolyser-EL2-1 # the cloud.io node name
     device-model: Enapter/Electrolyser_EL2_1_FW1_8_3
     comm-protocol: modbus_enapter  # refer to one comm-protocol above
     mapping: Enapter/Electrolyser_EL2_1_FW1_8_3_map1

@@ -43,7 +43,7 @@ tm_sp = TimeSeries(sp, start=datetime.now() - datetime.timedelta(hours=24),
 data = cc.get_time_series(tm_mea)
 
 # convert cloudio time series to panda data frame
-cc.data_frame(data, serie_name="My Measure")
+cc.data_frame(data)
 
 # get multiple time series with multithreading
 data = cc.get_multiple_time_series([tm_mea, tm_sp])
