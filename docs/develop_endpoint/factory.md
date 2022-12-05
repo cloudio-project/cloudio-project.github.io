@@ -67,3 +67,11 @@ public class MyNode extends CloudioDynamicNode implements CloudioFactoryConfigur
     }  
 }
 ```
+
+### Example
+
+An example endpoint factory is available [here](https://github.com/cloudio-project/cloudio-endpoint-factory-example). A counter node is added based on a JSON description file. Three optional properties can be set in the description file:
+
+- The counter step.
+- The delay between each step.
+- The counter max value.
